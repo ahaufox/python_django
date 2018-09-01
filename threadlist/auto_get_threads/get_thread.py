@@ -1,4 +1,4 @@
-#coding:utf-8
+# -*- coding: utf-8 -*-
 import requests
 from bs4 import BeautifulSoup
 import urllib
@@ -42,12 +42,13 @@ def get_sql_path():
 
 def get_text(text):
     text=re.sub('\n','',text)
+    text = re.sub('<[^>]+>', '', text)
     return text
 
 
-def get_threads_21ic(url):
+def get_threads_21ic(page):
+    url = 'http://bbs.21ic.com/forum.php?mod=guide&view=newthread'
     a='&page='
-    page=1
     url=url+a+str(page)
     r=[]
     from_site='21IC'#来源网站
@@ -56,11 +57,9 @@ def get_threads_21ic(url):
     res=soup.select('tbody > tr > th > a')
     list=len(res)
     for i in range(0,list):
-        time.sleep(1)
         href = res[i].get('href')
         s = sql_select('select * from threadlist_threadlist where href=\'{}\''.format(href))
         if s:
-            print(i)
             pass
         else:
             pub_time_all = soup.select('tbody > tr > td:nth-of-type(3) > em > span')
@@ -71,20 +70,17 @@ def get_threads_21ic(url):
             title = get_text(soup.select('tbody > tr > th > a')[i].getText()) .encode('utf-8')  # 帖子标题
             user_name = get_text(user_name_all[i].getText().encode('utf-8'))   # 发帖人昵称
             try:
-                time.sleep(1)
                 content = get_text((c_soup.select('.t_f')[0]).text.encode('utf-8'))# 帖子内容
-                print (content)
+                time.sleep(1)
             except:
                 c_url=get_rel_url(c_soup.contents)
                 c_soup = BeautifulSoup(c_url, 'html.parser')
-                content = get_text(c_soup.select('.t_f')[0].text.encode('utf-8')) # 帖子内容
-                print(content)
+                content = (c_soup.select('.t_f')[0]).text.encode('utf-8') # 帖子内容
             r.append((from_site, href, pub_time, title, user_name, content))
-            #print(r)
             insert_to_sql="""insert into threadlist_threadlist (from_site,href,insert_time,title,username,content) values (\'{}\',\'{}\',\'{}\',\'{}\',\'{}\',\'{}\')""".format(from_site, href, pub_time, title, user_name, content)
-            #return(insert_to_sql)
+            #print(insert_to_sql)
             print(sql_insert(insert_to_sql))
-    return url,r
+    return url
 
 
 def sql_insert(sql):
@@ -94,7 +90,7 @@ def sql_insert(sql):
         s=c.execute(sql)
         ss=conn.commit()
     except:
-        return 'err:sql错误'
+        return 'sql错误'
     return 200
 
 def sql_select(sql):
@@ -107,10 +103,4 @@ def sql_select(sql):
     return ss
 
 
-
-sql = "insert into threadlist_threadlist (username,title,insert_time,href) values (\'{}\' ,\'{}\',\'{}\',\'{}\')".format(
-    'adfa', 'dfasdfafsa', '2018-08-27 20:58:02', 'dada')
-
-sql_s='select * from threadlist_threadlist'
-url='http://bbs.21ic.com/forum.php?mod=guide&view=newthread'
-print(get_threads_21ic(url))
+print(get_threads_21ic(4))

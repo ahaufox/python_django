@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+{% include  'header_main.html' %}
+<body>
+
+<div class="layui-form layui-card-header layuiadmin-card-header-auto" lay-filter="layadmin-userfront-formlist">
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">ID</label>
+            <div class="layui-input-block">
+                <input name="id" class="layui-input" type="text" placeholder="请输入" autocomplete="off">
+            </div>
+        </div>
+        <div class="layui-inline">
+            <label class="layui-form-label">{{ name }}</label>
+            <div class="layui-input-block">
+                <input name="username" class="layui-input" type="text" placeholder="请输入" autocomplete="off">
+            </div>
+        </div>
+        <div class="layui-inline">
+            <button class="layui-btn layuiadmin-btn-useradmin" lay-filter="LAY-user-front-search" lay-submit="">
+                <i class="layui-icon layui-icon-search layuiadmin-button-btn"></i>
+            </button>
+        </div>
+    </div>
+</div>
+</body>
+</html>

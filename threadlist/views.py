@@ -66,3 +66,7 @@ def edit(request,thread_id):
 def list_have_edit(request,thread_type):
     return HttpResponse("显示一类已经被标记的帖子详情，type值=%s" % thread_type)
 
+def login(request):
+    context={}
+    context['name']='myname'
+    return render(request,'login.html',context)

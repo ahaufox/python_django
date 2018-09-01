@@ -10,4 +10,5 @@ urlpatterns = [
     path('list', views.list),
     path('<int:thread_id>/', views.edit, name='edit'),
     path('edit/<int:thread_type>/',views.list_have_edit,name='list_have_edit'),
+    path('login',views.login,name='login')
 ]
