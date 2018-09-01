@@ -12,10 +12,10 @@
 		<div style="padding: 15px;" >
 			<table class="layui-table">
 				<colgroup>
-					<col width="50">
-					<col width="80">
-					<col width="130">
-					<col width="160">
+					<col width="20">
+					<col width="100">
+					<col width="110">
+					<col width="300">
 					<col>
 					<col width="130">
 				</colgroup>
@@ -30,22 +30,16 @@
 				</tr>
 				</thead>
 				<tbody>
-				{% for a in title_list %}
+				{% for a in list %}
 					<tr>
-						{%  for b in a %}
-							<th>{{ b.title }}</th>
-							<td>{{ b.href  }}</td>
-							<td>{{ b  }}</td>
-							<td>
-								{{ b.title }}
-							</td>
-
-							<td>
-								{{ b.title  }}
-							</td>
-							<td><a href="javascript:;">标记有效</a> <a>|</a> <a href="javascript:;">删除</a></td>
-						{% endfor %}
-					</tr>{% endfor %}
+						<td>{{ a.0 }}</td>
+						<td>{{ a.1 }}</td>
+						<td>{{ a.2|date:"Y-m-d H:i:s"}}</td>
+						<td><a href="{{ a.5 }}" target="_blank">{{ a.3 }}</a></td>
+						<td style="max-width: 800px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;" title="{{ a.4 }}">{{ a.4 }}</td>
+						<td><a href="javascript:;">标记有效</a> <a>|</a> <a href="javascript:;">删除</a></td>
+					</tr>
+				{% endfor %}
 				<tr>
 					<th>21IC</th>
 					<td>许闲心</td>

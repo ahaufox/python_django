@@ -7,7 +7,9 @@ from .models import Threadlist,Threadcheck,Garbage_info
 
 def index(req):
     context={}
+    thread_num=len(Threadlist.objects.all())
     context['nav_id']='index'
+    context['thread_num']=thread_num
     return render(req, 'index.html',context)
 
 def need_do(req):
@@ -15,27 +17,10 @@ def need_do(req):
     context['title']='this is title!'
     context['name'] = 'this is name!'
     context['nav_id'] = 'need_do'
-    title_list=[]
-    insert_time_list=[]
-    content_list=[]
-    href_list=[]
-    username_list=[]
-    from_site_list=[]
+    list=[]
     for i in Threadlist.objects.all():
-    #     title_list.append(i.title)
-    #     content_list.append(i.content)
-    #     href_list.append(i.href)
-    #     username_list.append(i.username)
-    #     from_site_list.append(i.from_site)
-    #     insert_time_list.append(i.insert_time)
-    # context['title_list'] = title_list
-    # context['content_list'] = title_list
-    # context['href_list'] = title_list
-    # context['username_list'] = title_list
-    # context['from_site_list'] = title_list
-    # context['insert_time_list'] = title_list
-        title_list.append([i.title,i.content,i.href,i.from_site,i.username,i.insert_time])
-    context['title_list']=title_list
+        list.append([i.from_site,i.username,i.insert_time,i.title,i.content,i.href])
+    context['list'] = list
     return render(req,'need_do.html',context)
 
 def table_basic(request):

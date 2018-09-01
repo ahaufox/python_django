@@ -50,8 +50,7 @@ def get_threads_21ic(url):
     page=1
     url=url+a+str(page)
     r=[]
-    from_site=re.sub('.com[^\s]*','.com',url)
-    from_site=re.sub('http://','',from_site)#来源网站
+    from_site='21IC'#来源网站
     request = requests.get(url=url).content
     soup = BeautifulSoup(request, "html.parser")
     res=soup.select('tbody > tr > th > a')
@@ -70,15 +69,15 @@ def get_threads_21ic(url):
             c_soup = BeautifulSoup(c_url, 'html.parser')
             pub_time = pub_time_all[i].getText()  # 发布时间
             title = get_text(soup.select('tbody > tr > th > a')[i].getText()) .encode('utf-8')  # 帖子标题
-            user_name = get_text(user_name_all[i].getText()) .encode('utf-8')  # 发帖人昵称
+            user_name = get_text(user_name_all[i].getText().encode('utf-8'))   # 发帖人昵称
             try:
                 time.sleep(1)
-                content = get_text(c_soup.select('.t_f')[0].text) .encode('utf-8')  # 帖子内容
+                content = get_text((c_soup.select('.t_f')[0]).text.encode('utf-8'))# 帖子内容
                 print (content)
             except:
                 c_url=get_rel_url(c_soup.contents)
                 c_soup = BeautifulSoup(c_url, 'html.parser')
-                content = get_text(c_soup.select('.t_f')[0].text).encode('utf-8')  # 帖子内容
+                content = get_text(c_soup.select('.t_f')[0].text.encode('utf-8')) # 帖子内容
                 print(content)
             r.append((from_site, href, pub_time, title, user_name, content))
             #print(r)
