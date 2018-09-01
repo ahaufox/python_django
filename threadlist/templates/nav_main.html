@@ -1,0 +1,39 @@
+{% load static %}
+
+<div class="layui-side-scroll">
+		<div class="layui-logo"><a href="index.html"> <img style="width: 140px;height: auto;" src={% static "images/nav_logo.png" %}/></a></div>
+	</div>
+
+	<div class="layui-side layui-bg-black">
+		<div class="layui-side-scroll">
+{{ nav_id }}
+			<ul class="layui-nav layui-nav-tree"  lay-filter="test" style="padding-top: 50px;">
+				<li class="layui-nav-item"  nav_id="index">
+					<a href="index.html" lay-direction="2"> <i class="layui-icon layui-icon-home"></i> <cite>看板</cite> </a>
+				</li>
+				<li class="layui-nav-item layui-nav-itemed " >
+					<a class="" href="javascript:;">信息汇总</a>
+					<dl class="layui-nav-child" >
+						<dd nav_id="need_do"><a href="need_do.html" >待处理</a></dd>
+						<dd nav_id="no_use_threads"><a href="javascript:;">无价值信息</a></dd>
+						<dd nav_id="all_threads"><a href="javascript:;">全部信息</a></dd>
+					</dl>
+				</li>
+
+				<li class="layui-nav-item layui-nav-item">
+					<a class="" href="javascript:;">自动处理设置</a>
+					<dl class="layui-nav-child">
+						<dd><a href="javascript:;">已处理信息</a></dd>
+						<dd><a href="javascript:;">关键词设置</a></dd>
+					</dl>
+				</li>
+				<li class="layui-nav-item layui-nav-item">
+					<a class="" href="javascript:;">登陆选项</a>
+					<dl class="layui-nav-child">
+						<dd><a href="javascript:;">退出</a></dd>
+						<dd><a href="javascript:;">修改密码</a></dd>
+					</dl>
+				</li>
+			</ul>
+		</div>
+	</div>

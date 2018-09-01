@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+{% include  'header_main.html' %}
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+	<!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+	{% include 'nav_main.html' %}
+	<!-- 内容主体区域 -->
+	<div class="layui-body" style="top: 0px;left: 200px;">
+
+		<div style="padding: 15px;" >
+			<div class="layui-fluid">
+				<div class="layui-row layui-col-space15 ">
+					<div class="layui-col-sm6 layui-col-md3 ">
+						<div class="layui-card-header layui-bg-green">
+							累计采集信息数
+							{#							<span class="layui-badge layui-bg-blue layuiadmin-badge">周</span>#}
+						</div>
+						<div class="layui-card-body layuiadmin-card-list layui-bg-green">
+							<p class="layuiadmin-big-font" style="color: #FFF;">99666</p>
+
+						</div>
+					</div>
+					<div class="layui-col-sm6 layui-col-md3">
+						<div class="layui-card-header layui-bg-gray">
+							待处理信息数
+						</div>
+						<div class="layui-card-body layuiadmin-card-list layui-bg-gray">
+							<p class="layuiadmin-big-font">666</p>
+							{#							<p>尚未处理信息</p>#}
+						</div>
+					</div>
+					<div class="layui-col-sm6 layui-col-md3">
+						<div class="layui-card-header layui-bg-green">
+							采集间隔
+							{#							<span class="layui-badge layui-bg-blue layuiadmin-badge">周</span>#}
+						</div>
+						<div class="layui-card-body layuiadmin-card-list layui-bg-green">
+							<p class="layuiadmin-big-font" style="color: #FFF;">9,999,666</p>
+						</div>
+					</div>
+					<div class="layui-col-sm6 layui-col-md3">
+						<div class="layui-card-header layui-bg-gray">
+							垃圾信息数
+							{#							<span class="layui-badge layui-bg-blue layuiadmin-badge">周</span>#}
+						</div>
+						<div class="layui-card-body layuiadmin-card-list layui-bg-gray">
+							<p class="layuiadmin-big-font">9,999,666</p>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="layui-footer" style="font-size: 8px;">
+		{% include 'footer_main.html'%}
+	</div>
+</div>
+{% include 'foot_js.html' %}
+</body>
+</html>
