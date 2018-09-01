@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.template import loader
 from django.http import HttpResponse
 from .models import Threadlist,Threadcheck,Garbage_info
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 def index(req):
@@ -22,6 +23,21 @@ def need_do(req):
         list.append([i.from_site,i.username,i.insert_time,i.title,i.content,i.href])
     context['list'] = list
     return render(req,'need_do.html',context)
+def pages(request):
+    context = {}
+    list = []
+    for i in Threadlist.objects.all():
+        list.append([i.from_site,i.username,i.insert_time,i.title,i.content,i.href])
+    context['list'] = list
+    pages=Paginator(list, 25)
+    page = request.GET.get('page')
+    try:
+        contacts = pages.page(page)
+    except PageNotAnInteger:
+        contacts = pages.page(1)  # If page is not an integer, deliver first page.
+    except EmptyPage:
+        contacts = pages.page(pages.num_pages)  # If page is out of range (e.g. 9999), deliver last page of results.
+        return render(request, 'need_do.html', {'contacts': contacts})
 
 def table_basic(request):
     context = {}
