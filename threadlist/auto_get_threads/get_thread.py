@@ -6,7 +6,7 @@ import time
 import re
 import sqlite3
 import os
-from PyV8 import JSContext
+#from PyV8 import JSContext
 import re
 
 
