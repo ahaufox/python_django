@@ -1,27 +1,44 @@
-{% load static %}
-<!DOCTYPE html>
+{% load static %}<!DOCTYPE html>
 <html>
 {% include  'header_main.html' %}
 <body>
-<div class="login-main">
-    <header class="layui-elip">后台登录</header>
-    <form class="layui-form">
-        <div class="layui-input-inline">
-            <input type="text" name="account" required  lay-verify="required" placeholder="邮箱" autocomplete="off" class="layui-input">
+<div class="layui-container">
+    <form class="layui-form" style="text-align:center;padding-top: 200px">
+        <div class="layui-row">
+            <div class="layui-row layui-col-space30">
+                <div class="layui-logo">
+                    <i class="layui-icon layui-icon-face-smile" style="font-size: 30px; color: #ff1200;"></i>
+                    <i class="layui-icon layui-icon-face-smile" style="font-size: 30px; color: #ff1200;"></i>
+                    <i class="layui-icon layui-icon-face-smile" style="font-size: 30px; color: #ff1200;"></i>
+                </div>
+            </div>
+            <div class="layui-row layui-col-space30">
+                <div class="layui-input-inline">
+                    <input type="text" name="name"  placeholder="账户" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-row layui-col-space30">
+                <div class="layui-input-inline">
+                    <input type="password" name="password" placeholder="密码" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-row layui-col-space30">
+                <div class="layui-input-inline">
+                    <button type="submit" class="layui-btn" formmethod="post">登录</button>
+                </div>
+            </div>
         </div>
-        <div class="layui-input-inline">
-            <input type="password" name="password" required  lay-verify="required" placeholder="密码" autocomplete="off" class="layui-input">
-        </div>
-        <div class="layui-input-inline login-btn">
-            <button type="submit" class="layui-btn">登录</button>
-        </div>
-        <hr/>
-        <div class="layui-input-inline">
-            <button type="button" class="layui-btn layui-btn-primary">QQ登录</button>
-        </div>
-        <p><a href="javascript:;" class="fl">立即注册</a><a href="javascript:;" class="fr">忘记密码？</a></p>
     </form>
 </div>
-{% include 'foot_js.html' %}
+</div>
+</div>
+<script src={% static "layui.js" %}></script>
+<script src={% static "/lay/modules/jquery.js" %}></script>
+<script>
+    var $ = layui.jquery;
+    $(function (){
+
+    })
+</script>
 </body>
 </html>

@@ -69,4 +69,7 @@ def list_have_edit(request,thread_type):
 def login(request):
     context={}
     context['name']='myname'
-    return render(request,'login.html',context)
+    if request.method=='POST':
+        return HttpResponse('ddd')
+    else:
+        return render(request,'login.html',context)
