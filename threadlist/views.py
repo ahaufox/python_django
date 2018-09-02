@@ -23,6 +23,7 @@ def need_do(req):
         list.append([i.from_site,i.username,i.insert_time,i.title,i.content,i.href])
     context['list'] = list
     return render(req,'need_do.html',context)
+
 def pages(request):
     context = {}
     list = []
@@ -59,17 +60,10 @@ def list(request):
     #title = ', '.join([q.title for q in latest_question_list])
     return HttpResponse(template.render(context, request))
 
-def edit(request,thread_id):
-    response = ("edit，对有意向的帖子标记，当前标记的帖子id=%s" % thread_id)
-    return HttpResponse(response)
-
-def list_have_edit(request,thread_type):
-    return HttpResponse("显示一类已经被标记的帖子详情，type值=%s" % thread_type)
-
 def login(request):
     context={}
     context['name']='myname'
+    if request.method=='GET':
+        return render(request, 'login.html', context)
     if request.method=='POST':
-        return HttpResponse('ddd')
-    else:
-        return render(request,'login.html',context)
+        return HttpResponse('登陆成功')
