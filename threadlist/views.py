@@ -4,7 +4,9 @@ from django.template import loader
 from django.http import HttpResponse
 from .models import Threadlist,Threadcheck,Garbage_info
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login
+from django.shortcuts import render, redirect, reverse
 
 def index(req):
     context={}
@@ -61,9 +63,20 @@ def list(request):
     return HttpResponse(template.render(context, request))
 
 def login(request):
-    context={}
-    context['name']='myname'
-    if request.method=='GET':
+    context = {}
+    context['name'] = 'myname'
+    if request.method == 'GET':
         return render(request, 'login.html', context)
-    if request.method=='POST':
-        return HttpResponse('登陆成功')
+
+    if request.method=="POST":
+        username = request.POST.get('username', '')
+        password = request.POST.get('password', '')
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            context['name'] = username
+            #login(request, user)
+            #return redirect(reverse('index.html'))
+            return render(request, 'login.html', context)
+        else:
+            #context['name'] = username
+            return render(request, 'login.html', context)
