@@ -8,12 +8,14 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect, reverse
 
-def index(req):
+def index(request):
+    v = request.get_signed_cookie()
     context={}
     thread_num=len(Threadlist.objects.all())
     context['nav_id']='index'
+    context['login']=v
     context['thread_num']=thread_num
-    return render(req, 'index.html',context)
+    return render(request, 'index.html',context)
 
 def need_do(req):
     context={}
@@ -64,19 +66,19 @@ def list(request):
 
 def login(request):
     context = {}
-    context['name'] = 'myname'
     if request.method == 'GET':
+        context['name'] = 'myname'
         return render(request, 'login.html', context)
 
     if request.method=="POST":
-        username = request.POST.get('username', '')
-        password = request.POST.get('password', '')
+        username=request._post['name']
+        password = request._post['password']
         user = authenticate(request, username=username, password=password)
         if user is not None:
             context['name'] = username
             #login(request, user)
             #return redirect(reverse('index.html'))
-            return render(request, 'login.html', context)
+            return render(request, 'index.html', context)
         else:
-            #context['name'] = username
+            context['name'] = 'err'
             return render(request, 'login.html', context)
