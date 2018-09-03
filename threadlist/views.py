@@ -14,7 +14,6 @@ def index(request):
         context['thread_num']=thread_num
         return render(request, 'index.html',context)
     else:
-
         return redirect('do_login')
 
 def need_do(req):
