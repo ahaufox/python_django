@@ -1,21 +1,21 @@
 #coding:utf-8
-from django.shortcuts import render
 from django.template import loader
 from django.http import HttpResponse
 from .models import Threadlist,Threadcheck,Garbage_info
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login,logout
 from django.shortcuts import render, redirect, reverse
 
 def index(request):
-    #v = request.get_signed_cookie()
-    context={}
-    thread_num=len(Threadlist.objects.all())
-    context['nav_id']='index'
-    #context['login']=v
-    context['thread_num']=thread_num
-    return render(request, 'index.html',context)
+    if request.user.is_authenticated:
+        context={}
+        thread_num=len(Threadlist.objects.all())
+        context['nav_id']='index'
+        context['thread_num']=thread_num
+        return render(request, 'index.html',context)
+    else:
+
+        return redirect('do_login')
 
 def need_do(req):
     context={}
@@ -64,18 +64,22 @@ def list(request):
     #title = ', '.join([q.title for q in latest_question_list])
     return HttpResponse(template.render(context, request))
 
-def login(request):
-    context = {}
-    if request.method == 'GET':
-        context['name'] = 'myname'
-        return render(request, 'login.html', context)
-
-    if request.method=="POST":
-        username=request._post['name']
-        password = request._post['password']
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            return redirect('index.html')
+def do_login(request):
+    if request.user.is_authenticated:
+        return redirect('/')
+    else:
+        if request.method == "POST":
+            username = request._post['name']
+            password = request._post['password']
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('index.html')
+            else:
+                return render(request, 'login.html', '账号密码不对')
         else:
-            context['name'] = 'err'
-            return render(request, 'login.html', context)
+            return render(request, 'login.html')
+
+def do_logout(request):
+    logout(request)
+    return redirect('do_login')

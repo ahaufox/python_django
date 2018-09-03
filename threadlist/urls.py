@@ -1,5 +1,4 @@
 from . import views
-from threadlist import views as view2
 from django.urls import path
 
 urlpatterns = [
@@ -8,5 +7,6 @@ urlpatterns = [
     path('need_do.html',views.need_do),
     path('table_basic.html',views.table_basic),
     path('list', views.list),
-    path('login',views.login,name='login')
+    path('login',views.do_login,name='do_login'),
+    path('logout',views.do_logout)
 ]
