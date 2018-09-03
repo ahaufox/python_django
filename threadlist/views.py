@@ -9,11 +9,11 @@ from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect, reverse
 
 def index(request):
-    v = request.get_signed_cookie()
+    #v = request.get_signed_cookie()
     context={}
     thread_num=len(Threadlist.objects.all())
     context['nav_id']='index'
-    context['login']=v
+    #context['login']=v
     context['thread_num']=thread_num
     return render(request, 'index.html',context)
 
@@ -75,10 +75,7 @@ def login(request):
         password = request._post['password']
         user = authenticate(request, username=username, password=password)
         if user is not None:
-            context['name'] = username
-            #login(request, user)
-            #return redirect(reverse('index.html'))
-            return render(request, 'index.html', context)
+            return redirect('index.html')
         else:
             context['name'] = 'err'
             return render(request, 'login.html', context)
