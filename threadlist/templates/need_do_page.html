@@ -9,7 +9,7 @@
 	{% include  'nav_main.html' %}
 	<!-- 内容主体区域 -->
 	<div class="layui-body" style="top: 0px;left: 220px;">
-		<div style="padding: 15px;" >
+		<div style="padding-left: 15px;padding-top: 0px;padding-bottom: 10px" >
 			<table class="layui-table">
 				<colgroup>
 					<col width="20">
@@ -43,25 +43,19 @@
 				{% endfor %}
 				</tbody>
 			</table>
-			<div><span class="step-links">
+			<div style="text-align: center"><span >
+			<a href="?page=1"style="margin: 0 20px">&laquo;&laquo; </a>
         {% if contacts.has_previous %}
-			<a href="?page=1">&laquo; first</a>
-			<a href="?page={{ contacts.previous_page_number }}">previous</a>
+			<a href="?page={{ contacts.previous_page_number }}"style="margin: 0 20px"><</a>
 		{% endif %}
-
-				<span class="current">
-            Page {{ contacts.number }} of {{ contacts.paginator.num_pages }}.
+				<span style="margin: 0 20px">
+            第 {{ contacts.number }} 页，共 {{ contacts.paginator.num_pages }}页.
         </span>
-
 				{% if contacts.has_next %}
-					<a href="?page={{ contacts.next_page_number }}">next</a>
-					<a href="?page={{ contacts.paginator.num_pages }}">last &raquo;</a>
+					<a href="?page={{ contacts.next_page_number }}"style="margin: 0 20px">></a>
+					<a href="?page={{ contacts.paginator.num_pages }}"style="margin: 0 20px">&raquo;&raquo;</a>
 				{% endif %}
     </span></div>
-
-
-
-
 		</div>
 	</div>
 </div>

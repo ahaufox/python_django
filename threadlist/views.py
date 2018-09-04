@@ -31,8 +31,15 @@ def pages(request):
     contact_list = Threadlist.objects.all()
     paginator = Paginator(contact_list, 15) # Show 25 contacts per page
     page = request.GET.get('page')
-    contacts = paginator.get_page(page)
-    return render(request, 'need_do_page.html', {'contacts': contacts})
+    try:
+        contacts = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        contacts = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        contacts = paginator.page(paginator.num_pages)
+    return render(request, 'need_do_page.html', {'contacts': contacts,'nav_id':'pages'})
 
 def table_basic(request):
     context = {}
