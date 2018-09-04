@@ -8,5 +8,6 @@ urlpatterns = [
     path('table_basic.html',views.table_basic),
     path('list', views.list),
     path('login',views.do_login,name='do_login'),
-    path('logout',views.do_logout)
+    path('logout', views.do_logout),
+    path('pages',views.pages)
 ]

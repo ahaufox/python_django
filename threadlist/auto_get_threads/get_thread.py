@@ -103,4 +103,4 @@ def sql_select(sql):
     return ss
 
 
-print(get_threads_21ic(4))
+print(get_threads_21ic(2))

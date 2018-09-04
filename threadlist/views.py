@@ -28,20 +28,11 @@ def need_do(req):
     return render(req,'need_do.html',context)
 
 def pages(request):
-    context = {}
-    list = []
-    for i in Threadlist.objects.all():
-        list.append([i.from_site,i.username,i.insert_time,i.title,i.content,i.href])
-    context['list'] = list
-    pages=Paginator(list, 25)
+    contact_list = Threadlist.objects.all()
+    paginator = Paginator(contact_list, 15) # Show 25 contacts per page
     page = request.GET.get('page')
-    try:
-        contacts = pages.page(page)
-    except PageNotAnInteger:
-        contacts = pages.page(1)  # If page is not an integer, deliver first page.
-    except EmptyPage:
-        contacts = pages.page(pages.num_pages)  # If page is out of range (e.g. 9999), deliver last page of results.
-        return render(request, 'need_do.html', {'contacts': contacts})
+    contacts = paginator.get_page(page)
+    return render(request, 'need_do_page.html', {'contacts': contacts})
 
 def table_basic(request):
     context = {}
