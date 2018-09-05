@@ -29,8 +29,9 @@ def need_do(req):
     return render(req,'need_do.html',context)
 
 def pages(request):
+    x=20
     contact_list = Threadlist.objects.all()
-    paginator = Paginator(contact_list, 20) # Show 25 contacts per page
+    paginator = Paginator(contact_list, x) # Show 25 contacts per page
     page = request.GET.get('page')
     try:
         contacts = paginator.page(page)
@@ -40,7 +41,7 @@ def pages(request):
     except EmptyPage:
         # If page is out of range (e.g. 9999), deliver last page of results.
         contacts = paginator.page(paginator.num_pages)
-    return render(request, 'need_do_page.html', {'contacts': contacts,'nav_id':'pages'})
+    return render(request, 'need_do_page.html', {'contacts': contacts,'nav_id':'pages','page_num':x})
 
 def table_basic(request):
     context = {}
