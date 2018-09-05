@@ -5,6 +5,7 @@ from .models import Threadlist,Threadcheck,Garbage_info
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth import authenticate, login,logout
 from django.shortcuts import render, redirect, reverse
+from django.contrib.auth.models import User
 
 def index(request):
     if request.user.is_authenticated:
@@ -73,10 +74,25 @@ def do_login(request):
                 login(request, user)
                 return redirect('index.html')
             else:
-                return render(request, 'login.html', '账号密码不对')
+                contant={}
+                contant['msg']='账号密码不对'
+                return render(request, 'login.html', contant)
         else:
-            return render(request, 'login.html')
+            contant = {}
+            contant['msg'] = '账号密码不对'
+            return render(request, 'login.html', contant)
 
 def do_logout(request):
     logout(request)
     return redirect('do_login')
+
+
+def cread_user(request):
+    if request.method=='GET':
+        return render(request, 'regedit.html')
+    if request.method=='POST':
+        username = request._post['name']
+        password = request._post['password']
+        email=request._post['email']
+        user = User.objects.create_user(username, 'ahaufox@vip.qq.com', password)
+        return render(request,'regedit.html')

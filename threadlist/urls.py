@@ -9,5 +9,6 @@ urlpatterns = [
     path('list', views.list),
     path('login',views.do_login,name='do_login'),
     path('logout', views.do_logout),
-    path('pages',views.pages)
+    path('pages',views.pages),
+    path('regedit',views.cread_user,name='regedit')
 ]

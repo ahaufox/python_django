@@ -1,1 +1,3 @@
-# python_django
+# 使用说明
+
+1.1 添加用户，将regedit开放即可（urls中取消注释，前台可以访问即可）
