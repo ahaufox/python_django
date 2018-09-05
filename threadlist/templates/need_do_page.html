@@ -13,8 +13,8 @@
 			<table class="layui-table">
 				<colgroup>
 					<col width="20">
-					<col width="100">
-					<col width="110">
+					<col>
+					<col width="150">
 					<col width="300">
 					<col>
 					<col width="130">
@@ -33,9 +33,9 @@
 				{% for contact in contacts %}
 					{{ contact.full_name|upper }}
 					<tr>
-						<td>{{ contact.from_site }}</td>
+						<td style="max-width:90px;text-overflow: ellipsis;overflow: hidden;">{{ contact.from_site }}</td>
 						<td>{{ contact.username }}</td>
-						<td>{{ contact.insert_time|date:"Y-m-d H:i:s"}}</td>
+						<td>{{ contact.insert_time|date:"Y-m-d H:i"}}</td>
 						<td><a href="{{ contact.href }}" target="_blank">{{ contact.title }}</a></td>
 						<td style="max-width: 800px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;" title="{{ contact.content }}">{{ contact.content }}</td>
 						<td><a href="javascript:;">标记有效</a> <a>|</a> <a href="javascript:;">删除</a></td>

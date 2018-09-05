@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="00a75265-e139-47ff-bacb-7cd48675333a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/threadlist/auto_get_threads/test_add_users.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/threadlist/templates/regedit.html" afterDir="false" />
+    <list default="true" id="00a75265-e139-47ff-bacb-7cd48675333a" name="Default Changelist" comment="测试">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_django/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_django/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python_django/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_django/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/threadlist/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/threadlist/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/threadlist/auto_get_threads/get_thread.py" beforeDir="false" afterPath="$PROJECT_DIR$/threadlist/auto_get_threads/get_thread.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/threadlist/templates/need_do.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/threadlist/templates/need_do_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/threadlist/templates/need_do_page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/threadlist/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/threadlist/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/threadlist/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/threadlist/views.py" afterDir="false" />
     </list>
@@ -24,7 +23,7 @@
     <SUITE FILE_PATH="coverage/python_django$test_add_users.coverage" NAME="test_add_users Coverage Results" MODIFIED="1536166823333" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/threadlist/auto_get_threads" />
     <SUITE FILE_PATH="coverage/python_django$manage.coverage" NAME="manage Coverage Results" MODIFIED="1535817624345" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/python_django$test11.coverage" NAME="test11 Coverage Results" MODIFIED="1536143989130" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="F:/python-21ic" />
-    <SUITE FILE_PATH="coverage/python_django$get_thread.coverage" NAME="get_thread Coverage Results" MODIFIED="1536047201121" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/threadlist/auto_get_threads" />
+    <SUITE FILE_PATH="coverage/python_django$get_thread.coverage" NAME="get_thread Coverage Results" MODIFIED="1536169463441" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/threadlist/auto_get_threads" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -40,33 +39,22 @@
     <expand>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="db.sqlite3" type="feb32156:DbDataSourceImpl" />
+        <item name="Django default" type="feb32156:DbDataSourceImpl" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="db.sqlite3" type="feb32156:DbDataSourceImpl" />
+        <item name="Django default" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="db.sqlite3" type="feb32156:DbDataSourceImpl" />
+        <item name="Django default" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="main: schema" type="90513b60:SqliteImplModel$Schema" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="fae_tool@localhost" type="feb32156:DbDataSourceImpl" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="fae_tool@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="fae_tool@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="fae_tool: schema" type="c314c289:MysqlImplModel$Schema" />
       </path>
     </expand>
     <select />
@@ -141,38 +129,42 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="auth_permission" value="1" />
+          <entry key="auth_user" value="5" />
           <entry key="gitignore" value="1" />
-          <entry key="html" value="8" />
+          <entry key="html" value="10" />
           <entry key="md" value="1" />
-          <entry key="py" value="19" />
+          <entry key="py" value="25" />
           <entry key="rnc" value="1" />
-          <entry key="sql" value="1" />
+          <entry key="sql" value="3" />
+          <entry key="sqlite_master" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="8" />
+          <entry key="Database Element" value="7" />
+          <entry key="HTML" value="10" />
           <entry key="Markdown" value="1" />
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="19" />
+          <entry key="Python" value="25" />
           <entry key="RNG Compact" value="1" />
-          <entry key="Scratch" value="1" />
+          <entry key="Scratch" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="313" />
-          <entry key="md" value="56" />
-          <entry key="py" value="844" />
+          <entry key="html" value="328" />
+          <entry key="md" value="272" />
+          <entry key="py" value="936" />
           <entry key="txt" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="313" />
-          <entry key="Markdown" value="56" />
+          <entry key="HTML" value="328" />
+          <entry key="Markdown" value="272" />
           <entry key="PLAIN_TEXT" value="8" />
-          <entry key="Python" value="844" />
+          <entry key="Python" value="936" />
         </counts>
       </usages-collector>
     </session>
@@ -182,8 +174,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/threadlist/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="87" lean-forward="true" selection-start-line="87" selection-end-line="87" />
+            <state relative-caret-position="218">
+              <caret line="32" column="42" selection-start-line="32" selection-start-column="42" selection-end-line="32" selection-end-column="42" />
               <folding>
                 <element signature="e#14#48#0" expanded="true" />
               </folding>
@@ -191,43 +183,48 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/threadlist/templates/need_do_page.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="35" column="76" selection-start-line="35" selection-start-column="76" selection-end-line="35" selection-end-column="76" />
+              <folding>
+                <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/python_django/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="251">
+              <caret line="83" column="25" selection-start-line="83" selection-start-column="25" selection-end-line="83" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/threadlist/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="11" column="30" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
+            <state relative-caret-position="105">
+              <caret line="6" selection-start-line="6" selection-end-line="6" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/threadlist/templates/regedit.html">
+        <entry file="file://$PROJECT_DIR$/python_django/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-22">
-              <caret line="30" column="38" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="42">
-                <caret line="2" column="41" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
-              </first_editor>
-              <second_editor />
+            <state>
+              <caret selection-end-line="2" selection-end-column="28" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/threadlist/auto_get_threads/test_v8.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/threadlist/auto_get_threads/test_add_users.py">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
@@ -265,20 +262,21 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/threadlist/templates/index.html" />
         <option value="$PROJECT_DIR$/python-django笔记" />
-        <option value="$PROJECT_DIR$/threadlist/auto_get_threads/get_thread.py" />
         <option value="$PROJECT_DIR$/threadlist/templates/footer_main.html" />
         <option value="$PROJECT_DIR$/threadlist/templates/nav_main.html" />
         <option value="$PROJECT_DIR$/threadlist/templates/foot_js.html" />
-        <option value="$PROJECT_DIR$/threadlist/templates/need_do_page.html" />
         <option value="F:/python-21ic/test11.py" />
-        <option value="$PROJECT_DIR$/python_django/settings.py" />
         <option value="$PROJECT_DIR$/python_django/__init__.py" />
         <option value="$PROJECT_DIR$/threadlist/auto_get_threads/test_add_users.py" />
-        <option value="$PROJECT_DIR$/threadlist/urls.py" />
-        <option value="$PROJECT_DIR$/threadlist/views.py" />
         <option value="$PROJECT_DIR$/threadlist/templates/login.html" />
         <option value="$PROJECT_DIR$/threadlist/templates/regedit.html" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/python_django/settings.py" />
+        <option value="$PROJECT_DIR$/threadlist/auto_get_threads/get_thread.py" />
+        <option value="$PROJECT_DIR$/threadlist/templates/need_do.html" />
+        <option value="$PROJECT_DIR$/threadlist/urls.py" />
+        <option value="$PROJECT_DIR$/threadlist/views.py" />
+        <option value="$PROJECT_DIR$/threadlist/templates/need_do_page.html" />
       </list>
     </option>
   </component>
@@ -323,12 +321,6 @@
               <item name="python_django" type="b2602c69:ProjectViewProjectNode" />
               <item name="python_django" type="462c0819:PsiDirectoryNode" />
               <item name="threadlist" type="462c0819:PsiDirectoryNode" />
-              <item name="auto_get_threads" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="python_django" type="b2602c69:ProjectViewProjectNode" />
-              <item name="python_django" type="462c0819:PsiDirectoryNode" />
-              <item name="threadlist" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -367,7 +359,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.test_add_users">
+  <component name="RunManager" selected="Python.get_thread">
     <configuration name="get_thread" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="python_django" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -489,9 +481,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.get_thread" />
         <item itemvalue="Python.test_add_users" />
         <item itemvalue="Python.test11" />
-        <item itemvalue="Python.get_thread" />
         <item itemvalue="Python.manage" />
       </list>
     </recent_temporary>
@@ -626,7 +618,21 @@
       <option name="project" value="LOCAL" />
       <updated>1536053821008</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="测试">
+      <created>1536167395068</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1536167395068</updated>
+    </task>
+    <task id="LOCAL-00019" summary="测试">
+      <created>1536168035860</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1536168035860</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -638,7 +644,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49946696" weight="0.329718" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49946696" visible="true" weight="0.329718" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3991323" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -647,14 +653,14 @@
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49946696" weight="0.32936078" />
       <window_info anchor="bottom" id="Database Changes" order="10" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49946696" visible="true" weight="0.3286334" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49946696" weight="0.3286334" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.50053304" side_tool="true" weight="0.329718" />
       <window_info anchor="bottom" id="Python Console" order="13" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="SciView" order="3" weight="0.32995737" />
-      <window_info anchor="right" id="Database" order="4" weight="0.32995737" />
+      <window_info anchor="right" id="Database" order="4" visible="true" weight="0.25266525" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -728,20 +734,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/threadlist/templates/need_do_page.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="101">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/threadlist/auto_get_threads/get_thread.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="100" column="15" selection-start-line="100" selection-start-column="15" selection-end-line="100" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/Python27/Lib/site-packages/requests/api.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="301">
@@ -785,45 +777,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/python_django/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="92" lean-forward="true" selection-start-line="92" selection-end-line="92" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/f60056a0-b216-4bf6-a615-519c3f781792/console.sql">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/python_django/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="28" lean-forward="true" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/threadlist/auto_get_threads/test_v8.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/threadlist/auto_get_threads/test_add_users.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/threadlist/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="11" column="30" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/threadlist/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="87" lean-forward="true" selection-start-line="87" selection-end-line="87" />
-          <folding>
-            <element signature="e#14#48#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/threadlist/templates/login.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -835,20 +796,119 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/threadlist/templates/regedit.html">
+    <entry file="file://$PROJECT_DIR$/threadlist/auto_get_threads/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/python_django/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-22">
-          <caret line="30" column="38" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="38" />
+        <state>
+          <caret selection-end-line="2" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="42">
-            <caret line="2" column="41" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
+          <first_editor relative-caret-position="126">
+            <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://7ab38d47-217f-46de-8ca9-045a1998d68c/schema/main/table/auth_permission">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://7ab38d47-217f-46de-8ca9-045a1998d68c/schema/main/table/auth_user">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/threadlist/migrations/0001_initial.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-237" />
+      </provider>
+    </entry>
+    <entry file="das://05657b57-0da3-445e-bb06-d681e03683f2/schema/main/table/auth_user">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/05657b57-0da3-445e-bb06-d681e03683f2/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="das://05657b57-0da3-445e-bb06-d681e03683f2/schema/main/table/sqlite_master">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/python_django/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="83" column="25" selection-start-line="83" selection-start-column="25" selection-end-line="83" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/threadlist/auto_get_threads/get_thread.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="104" column="13" lean-forward="true" selection-start-line="104" selection-start-column="13" selection-end-line="104" selection-end-column="13" />
+          <folding>
+            <element signature="e#24#39#0" expanded="true" />
+            <element signature="e#1531#3308#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/threadlist/templates/regedit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="30" column="38" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/threadlist/templates/need_do.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="15" column="37" lean-forward="true" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/threadlist/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/threadlist/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="32" column="42" selection-start-line="32" selection-start-column="42" selection-end-line="32" selection-end-column="42" />
+          <folding>
+            <element signature="e#14#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/threadlist/templates/need_do_page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="35" column="76" selection-start-line="35" selection-start-column="76" selection-end-line="35" selection-end-column="76" />
+          <folding>
+            <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

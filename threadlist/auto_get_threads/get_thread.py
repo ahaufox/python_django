@@ -3,7 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 import urllib
 import time
-import re
+import pymysql
 import sqlite3
 import os
 #from PyV8 import JSContext
@@ -84,23 +84,25 @@ def get_threads_21ic(page):
 
 
 def sql_insert(sql):
-    conn = sqlite3.connect(get_sql_path())
-    c=conn.cursor()
+    conn = pymysql.connect("localhost", "root", "root", "fae_tool", charset='utf8')
+    cursor = conn.cursor()
     try:
-        s=c.execute(sql)
+        s=cursor.execute(sql)
         ss=conn.commit()
+        conn.close()
     except:
         return 'sql错误'
     return 200
 
 def sql_select(sql):
     ss=[]
-    conn = sqlite3.connect(get_sql_path())
-    c=conn.cursor()
-    s=c.execute(sql)
+    conn = pymysql.connect("localhost", "root", "root", "fae_tool", charset='utf8')
+    cursor = conn.cursor()
+    c=cursor.execute(sql)
+    s=cursor.fetchall()
     for i in s:
         ss.append(i)
     return ss
 
 
-print(get_threads_21ic(2))
+print(get_threads_21ic(3))

@@ -30,7 +30,7 @@ def need_do(req):
 
 def pages(request):
     contact_list = Threadlist.objects.all()
-    paginator = Paginator(contact_list, 15) # Show 25 contacts per page
+    paginator = Paginator(contact_list, 20) # Show 25 contacts per page
     page = request.GET.get('page')
     try:
         contacts = paginator.page(page)
