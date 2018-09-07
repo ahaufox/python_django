@@ -66,6 +66,7 @@ def register(request):
         if count:
             return HttpResponse('账号已存在')
         else:
+
             user=User.objects.create_user(username,'',password)
             return redirect('login')
 
