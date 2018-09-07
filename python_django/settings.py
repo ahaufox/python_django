@@ -79,11 +79,11 @@ WSGI_APPLICATION = 'python_django.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'HOST': '127.0.0.1',
+        'HOST': '47.105.116.213',
         'PORT': '3306',
         'NAME': 'fae_tool',
         'USER': 'root',
-        'PASSWORD': 'root',
+        'PASSWORD': '123456',
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
             },

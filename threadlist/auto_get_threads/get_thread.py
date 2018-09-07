@@ -77,7 +77,7 @@ def get_threads_21ic(page):
 
 
 def sql_insert(sql):
-    conn = pymysql.connect("localhost", "root", "root", "fae_tool", charset='utf8')
+    conn = pymysql.connect("47.105.116.213", "root", "123456", "fae_tool", charset='utf8')
     cursor = conn.cursor()
     try:
         s=cursor.execute(sql)
@@ -89,7 +89,7 @@ def sql_insert(sql):
 
 def sql_select(sql):
     ss=[]
-    conn = pymysql.connect("localhost", "root", "root", "fae_tool", charset='utf8')
+    conn = pymysql.connect("47.105.116.213", "root", "123456", "fae_tool", charset='utf8')
     cursor = conn.cursor()
     c=cursor.execute(sql)
     s=cursor.fetchall()
