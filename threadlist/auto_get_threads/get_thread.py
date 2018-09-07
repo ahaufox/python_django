@@ -34,17 +34,10 @@ def get_rel_url(js):
     url = 'http://bbs.21ic.com' + str(vars.location['href'])
     return url
 
-def get_sql_path():
-    rr=os.path.abspath(os.path.join(os.path.dirname('sql_con.py'),os.path.pardir,os.path.pardir))
-    rr=rr+"\db.sqlite3"  #创建sqlite.db数据库
-    return rr
-
-
 def get_text(text):
     text=re.sub('\n','',text)
     text = re.sub('<[^>]+>', '', text)
     return text
-
 
 def get_threads_21ic(page):
     url = 'http://bbs.21ic.com/forum.php?mod=guide&view=newthread'
@@ -67,10 +60,10 @@ def get_threads_21ic(page):
             c_url = requests.get(url=res[i].get('href')).content
             c_soup = BeautifulSoup(c_url, 'html.parser')
             pub_time = pub_time_all[i].getText()  # 发布时间
-            title = get_text(soup.select('tbody > tr > th > a')[i].getText()) .encode('utf-8')  # 帖子标题
-            user_name = get_text(user_name_all[i].getText().encode('utf-8'))   # 发帖人昵称
+            title = get_text(soup.select('tbody > tr > th > a')[i].getText())   # 帖子标题
+            user_name = get_text(user_name_all[i].getText())   # 发帖人昵称
             try:
-                content = get_text((c_soup.select('.t_f')[0]).text.encode('utf-8'))# 帖子内容
+                content = get_text((c_soup.select('.t_f')[0]).text)# 帖子内容
                 time.sleep(1)
             except:
                 c_url=get_rel_url(c_soup.contents)
@@ -105,4 +98,4 @@ def sql_select(sql):
     return ss
 
 
-print(get_threads_21ic(3))
+print(get_threads_21ic(5))
