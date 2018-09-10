@@ -19,3 +19,9 @@ class Messagelist(models.Model):
     message_state = models.CharField(default='', max_length=100, null=True)
     def __unicode__(self):
         return self.name
+
+class vuser(models.Model):
+    vuser_id=models.CharField(default='',max_length=100,null=True)
+    vuser_password = models.CharField(default='', max_length=100, null=True)
+    def __unicode__(self):
+        return self.name

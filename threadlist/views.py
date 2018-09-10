@@ -69,7 +69,7 @@ def pages(request):
         contacts = paginator.page(paginator.num_pages)
     return render(request, 'need_do_page.html', {'contacts': contacts,'nav_id':'pages','page_num':x})
 
-def get_message(request):
+def user_message(request):
     # contents={}
     # contents['from_user']='from_user'
     # contents['to_user']='to'
@@ -90,3 +90,9 @@ def get_message(request):
         contacts = paginator.page(paginator.num_pages)
     return render(request, 'message.html', {'contacts': contacts, 'nav_id': 'message_all', 'page_num': x})
     return render(request,'message.html',contents)
+
+def get_fae_message(request):
+    content={}
+    content['res']='True'
+    return render(request,'get_fae_message.html',content)
+
