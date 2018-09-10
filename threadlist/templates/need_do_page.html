@@ -6,54 +6,66 @@
 <body class="layui-layout-body">
 
 <div class="layui-layout layui-layout-admin">
-	{% include  'nav_main.html' %}
-	<!-- 内容主体区域 -->
-	<div class="layui-body" style="top: 10px;">
-		<div style="padding-left: 15px;padding-top: 0px;padding-bottom: 10px" >
-			<table class="layui-table">
-				<thead>
-				<tr>
-					<th>来源</th>
-					<th>发帖人</th>
-					<th>发帖时间</th>
-					<th>标题</th>
-					<th>内容</th>
-					<th>操作</th>
-				</tr>
-				</thead>
-				<tbody>
-				{% for contact in contacts %}
-					{{ contact.full_name|upper }}
-					<tr>
-						<td>{{ contact.from_site }}</td>
-						<td style="max-width: 50px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">{{ contact.username }}</td>
-						<td title="{{ contact.insert_time|date:"Y-m-d"}}">{{ contact.insert_time|date:"H:i"}}</td>
-						<td style="max-width: 100px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;"><a href="{{ contact.href }}" title="{{ contact.title }}" target="_blank">{{ contact.title }}</a></td>
-						<td style="max-width: 800px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;" title="{{ contact.content }}">{{ contact.content }}</td>
-						<td><a href="javascript:;">标记有效</a> <a>|</a> <a href="javascript:;">删除</a></td>
-					</tr>
-				{% endfor %}
-				</tbody>
-			</table>
-<a>每页帖子数：{{ page_num }}</a>
-			<div style="text-align: center">
+    {% include  'nav_main.html' %}
+    <!-- 内容主体区域 -->
+<div class="layui-body" style="top: 10px;">
+<div class="layui-row" style="padding-left: 15px;">
+  <div class="layui-col-md1">
+    <button class="layui-btn">更新全部信息</button>
+  </div>
+  <div class="layui-col-md1">
+    <button class="layui-btn">保留按钮</button>
+  </div>
+  <div class="layui-col-md1">
+    <button class="layui-btn">保留按钮</button>
+  </div>
+</div>
+
+    <div style="padding-left: 15px;padding-top: 0px;padding-bottom: 10px" >
+        <table class="layui-table">
+            <thead>
+            <tr>
+                <th>来源</th>
+                <th>发帖人</th>
+                <th>发帖时间</th>
+                <th>标题</th>
+                <th>内容</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for contact in contacts %}
+                {{ contact.full_name|upper }}
+                <tr>
+                    <td>{{ contact.from_site }}</td>
+                    <td style="max-width: 50px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">{{ contact.username }}</td>
+                    <td title="{{ contact.insert_time|date:"Y-m-d"}}">{{ contact.insert_time|date:"H:i"}}</td>
+                    <td style="max-width: 100px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;"><a href="{{ contact.href }}" title="{{ contact.title }}" target="_blank">{{ contact.title }}</a></td>
+                    <td style="max-width: 800px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;" title="{{ contact.content }}">{{ contact.content }}</td>
+                    <td><a href="javascript:;">标记有效</a> <a>|</a> <a href="javascript:;">删除</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <a>每页帖子数：{{ page_num }}</a>
+        <div style="text-align: center">
 
 
 				<span>
 			<a href="?page=1"style="margin: 0 20px">&laquo;&laquo; </a>
-				{% if contacts.has_previous %}
-					<a href="?page={{ contacts.previous_page_number }}"style="margin: 0 20px"><</a>
-				{% endif %}
-				<span style="margin: 0 20px">
+                    {% if contacts.has_previous %}
+                        <a href="?page={{ contacts.previous_page_number }}"style="margin: 0 20px"><</a>
+                    {% endif %}
+                    <span style="margin: 0 20px">
             第 {{ contacts.number }} 页，共 {{ contacts.paginator.num_pages }}页.
         </span>
-				{% if contacts.has_next %}
-					<a href="?page={{ contacts.next_page_number }}"style="margin: 0 20px">></a>
-					<a href="?page={{ contacts.paginator.num_pages }}"style="margin: 0 20px">&raquo;&raquo;</a>
-				{% endif %}
+                    {% if contacts.has_next %}
+                        <a href="?page={{ contacts.next_page_number }}"style="margin: 0 20px">></a>
+                        <a href="?page={{ contacts.paginator.num_pages }}"style="margin: 0 20px">&raquo;&raquo;</a>
+                    {% endif %}
     </span></div>
-		</div>
-	</div>
+    </div>
+</div>
 </div>
 {% include 'foot_js.html' %}
 </body>
