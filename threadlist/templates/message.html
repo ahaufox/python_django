@@ -8,24 +8,24 @@
 <div class="layui-layout layui-layout-admin">
 	{% include  'nav_main.html' %}
 	<!-- 内容主体区域 -->
-	<div class="layui-body" style="top: 10px;">
+	<div class="layui-body" style="top: 10px;left: 220px;">
 		<div style="padding-left: 15px;padding-top: 0px;padding-bottom: 10px" >
 			<table class="layui-table">
 				<thead>
 				<tr>
-					<th>来源</th>
-					<th>发帖人</th>
-					<th>发帖时间</th>
-					<th>标题</th>
+					<th>消息发送方</th>
+                    <th>发送方身份</th>
+                    <th>发送时间</th>
+					<th>消息接收方</th>
+                    <th>接收方身份</th>
 					<th>内容</th>
-					<th>操作</th>
 				</tr>
 				</thead>
 				<tbody>
 				{% for contact in contacts %}
 					{{ contact.full_name|upper }}
 					<tr>
-						<td>{{ contact.from_site }}</td>
+						<td>{{ contact.from_user }}</td>
 						<td style="max-width: 50px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">{{ contact.username }}</td>
 						<td title="{{ contact.insert_time|date:"Y-m-d"}}">{{ contact.insert_time|date:"H:i"}}</td>
 						<td style="max-width: 100px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;"><a href="{{ contact.href }}" title="{{ contact.title }}" target="_blank">{{ contact.title }}</a></td>
@@ -58,3 +58,8 @@
 {% include 'foot_js.html' %}
 </body>
 </html>
+{{ from_user }}
+{{ to_user }}
+{{ message_content }}
+{{ send_time }}
+{{ message_state }}

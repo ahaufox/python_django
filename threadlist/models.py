@@ -11,11 +11,11 @@ class Threadlist(models.Model):
     def __unicode__(self):
         return self.name
 
-
-class Threadcheck(models.Model):
-    have_check = models.ForeignKey(Threadlist, on_delete=models.CASCADE)
-    check_time = models.DateTimeField('date published')
-
-class Garbage_info(models.Model):
-    key_type = models.IntegerField(default=0)#0表示没有问题
-    key_value = models.CharField(max_length=200)
+class Messagelist(models.Model):
+    from_user=models.CharField(default='',max_length=100,null=True)
+    to_user = models.CharField(default='', max_length=100, null=True)
+    message_content=models.CharField(default='',max_length=1000, null=True)
+    send_time = models.DateTimeField(default='', null=True)
+    message_state = models.CharField(default='', max_length=100, null=True)
+    def __unicode__(self):
+        return self.name
