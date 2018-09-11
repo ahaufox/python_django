@@ -88,3 +88,11 @@ def get_fae_message(request):
     content['res']='True'
     return render(request,'get_fae_message.html',content)
 
+def test_py(request):
+    import os
+    pathname = os.path.dirname(os.path.abspath(__file__))
+    py_dir = pathname + '\\auto_get_threads\\'
+    py_name = 'get_thread.py'
+    os.system('python ' + py_dir + py_name)
+
+    return  ('python ' + py_dir + py_name)

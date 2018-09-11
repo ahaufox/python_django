@@ -9,5 +9,6 @@ urlpatterns = [
     path('pages',views.pages),
     path('register', views.register, name='register'),
     path('message',views.user_message,name='register'),
-    path('vuser',views.get_fae_message,name='register')
+    path('vuser',views.get_fae_message,name='register'),
+    path('test_py',views.test_py)
 ]

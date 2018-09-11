@@ -98,5 +98,3 @@ def sql_select(sql):
 
 
 print(get_threads_21ic(1))
-print(get_threads_21ic(2))
-print(get_threads_21ic(3))
