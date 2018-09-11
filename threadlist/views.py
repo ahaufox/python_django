@@ -56,8 +56,8 @@ def do_logout(request):
 
 def pages(request):
     x=20
-    contact_list = Threadlist.objects.all()
-    paginator = Paginator(contact_list, x) # Show 25 contacts per page
+    contact_list = Threadlist.objects.all().order_by("id")
+    paginator = Paginator(contact_list, x,5)
     page = request.GET.get('page')
     try:
         contacts = paginator.page(page)
@@ -70,15 +70,8 @@ def pages(request):
     return render(request, 'need_do_page.html', {'contacts': contacts,'nav_id':'pages','page_num':x})
 
 def user_message(request):
-    # contents={}
-    # contents['from_user']='from_user'
-    # contents['to_user']='to'
-    # contents['message_content']='message'
-    # contents['send_time']='time'
-    # contents['message_state']='state'
-    x = 20
     contact_list = Messagelist.objects.all()
-    paginator = Paginator(contact_list, x)  # Show 25 contacts per page
+    paginator = Paginator(contact_list, 20)
     page = request.GET.get('page')
     try:
         contacts = paginator.page(page)
@@ -88,8 +81,7 @@ def user_message(request):
     except EmptyPage:
         # If page is out of range (e.g. 9999), deliver last page of results.
         contacts = paginator.page(paginator.num_pages)
-    return render(request, 'message.html', {'contacts': contacts, 'nav_id': 'message_all', 'page_num': x})
-    return render(request,'message.html',contents)
+    return render(request, 'message.html', {'contacts': contacts, 'nav_id': 'message_all'})
 
 def get_fae_message(request):
     content={}

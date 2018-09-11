@@ -64,7 +64,6 @@ def get_threads_21ic(page):
             user_name = get_text(user_name_all[i].getText())   # 发帖人昵称
             try:
                 content = get_text((c_soup.select('.t_f')[0]).text)# 帖子内容
-                time.sleep(1)
             except:
                 c_url=get_rel_url(c_soup.contents)
                 c_soup = BeautifulSoup(c_url, 'html.parser')
@@ -98,4 +97,6 @@ def sql_select(sql):
     return ss
 
 
-print(get_threads_21ic(5))
+print(get_threads_21ic(1))
+print(get_threads_21ic(2))
+print(get_threads_21ic(3))
